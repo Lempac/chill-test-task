@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Chill test task 
+
+![image](https://github.com/Lempac/chill-test-task/assets/151722008/c0d59a8a-aa9e-4b6b-af77-ce9d5dc07ece)
+
+This is a [Next.js](https://nextjs.org/) project for chill test task using tailwind css and nextui.
 
 ## Getting Started
 
