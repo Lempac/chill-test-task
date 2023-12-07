@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { Button, Card, CardBody } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getProducts } from "@/app/components/getProducts";
+import { getProducts } from "../components/Product";
 
 export default function Info() {
     const router = useRouter();

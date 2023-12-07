@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { Key, useEffect, useState } from "react";
 import {Card, CardBody} from "@nextui-org/card";
 import { createRoot } from "react-dom/client";
-import { getProducts, Product } from "./components/getProducts";
+import { getProducts, Product } from "./components/Product";
 
 export default function Home() {
   const [ProductCategories, setProductCategories] = useState(new Array<{key: string, label: string}>);
@@ -92,7 +92,7 @@ export default function Home() {
 async function Update(category = "All", searchTerm: string = '', selectedProduct : Array<Product>) {
   const node_products = document.getElementById('products')!;
   let products = await FilterCategory(category, selectedProduct);
-  products = await Search(searchTerm, products);
+  products = Search(searchTerm, products);
   const root = createRoot(node_products);
   root.render(products.map(product => {
     return <Product key={product.id} product={product}></Product>
@@ -104,7 +104,7 @@ function MatchProduct(Product : Product, Search : string){
   return (Product.name.match(regSearch) || []).length + (Product.category.match(regSearch) || []).length + (Product.price.toString().match(regSearch) || []).length;
 }
 
-async function Search(searchTerm: string, selectedProduct : Array<Product>) {
+function Search(searchTerm: string, selectedProduct : Array<Product>) {
   if (searchTerm == '') return selectedProduct;
   let sorted_products = selectedProduct.sort((p1, p2) => MatchProduct(p2, searchTerm) - MatchProduct(p1, searchTerm));
   return sorted_products.filter(product => MatchProduct(product, searchTerm) > 0);
